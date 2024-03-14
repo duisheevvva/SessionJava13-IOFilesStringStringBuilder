@@ -1,67 +1,71 @@
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-//        TODO Task 1
+        List<String> students = new ArrayList<>();
+        students.add("Nurkyz");
+        students.add("Sabina");
+        students.add("Joomart");
+        students.add("Bektur");
+        students.add("Sultan");
+        students.add("Nurtilek");
+        students.add("SultanAli");
+        students.add("Nurmuhammed");
+        students.add("Yzaat");
+        students.add("Eldiyar");
+        students.add("Kudaiberdi");
+        students.add("Nurmuhammed");
+        students.add("Bektur");
+        students.add("Zaripbek");
+//        TODO 1
+        students.add(0, "Beknazar");
+        System.out.println("1-position updated : " + students);
 
-//        File achyp atabyz
-        FileWriter fileWriter = new FileWriter("java13.txt");
-        fileWriter.write("""
-                ~~~~~~~~~~~~~Motivation for Java 13~~~~~~~~~~
-                               Нельзя научиться программированию, просто читая книги, так
-                               же, как нельзя научиться ездить на велосипеде, просто читая
-                               инструкцию. Нужно практиковаться!!!
-                """);
+//        TODO 2
+        String student = students.get(3);
+        System.out.println("Found element: " + student);
 
-        fileWriter.close();
+//        TODO 3
+        students.set(6, "NurtilekUpdated");
+        System.out.println("6- position updated list : " + students);
 
+//        TODO 4
 
-//        file okush uchun file reader klassty koldonobuz
-        FileReader fileReader = new FileReader("java13.txt");
-      /*  Scanner scanner = new Scanner(fileReader);
+        students.remove(3);
+        System.out.println("3 position deleted :" + students);
 
-        while (scanner.hasNextLine()){
-            System.out.println(scanner.nextLine());
+//        TODO 5
+        if (students.contains("Nurkyz")) {
+            System.out.println(" Search element found!");
+        } else {
+            System.out.println("Element not found!");
         }
-        fileReader.close();
 
-       */
+//        TODO 6
+        List<String> subList = students.subList(0, 7);
+        System.out.println("SubList : " + subList);
 
+//        TODO 7
+        List<String> mentors = new ArrayList<>();
+        mentors.add("Ulan agai");
+        mentors.add("Aizat");
+        mentors.add("Datka");
+        students.addAll(mentors);
+        System.out.println("Join list :" + students);
+//        TODO 8
+        Collections.reverse(students);
+        System.out.println("reversed list : " + students);
 
-//        filedyn ichindegi maanini sala turchu peremennyi achabyz
-        int charValue;
-//        if ke shart berish uchun kak jardamchy peremennyi
-        boolean isTrue = true;
-//        counter ichindegi sozdordu sanash uchun
-        int wordCount = 0;
+//        TODO 9
+        students.removeAll(students);
+        System.out.println("Clear list : " + students);
 
-//        while ichinde : Бул цикл файлдын аягына (-1) жеткенге чейин файлдан символдорду бирден окуйт.
-        while ((charValue = fileReader.read()) != -1) {
-//       file readerden charvalue ge algan textti char tibindegi peremennyiga salyp alabyz
-            char currentChar = (char) charValue;
-//     Циклдин ичинде ар бир символ Character.isWhitespace() method колдонуу менен ortodogu probelderdi chygarat.
-
-//            ifttin ichindegi logika: jogoruda korsotulgon method arkyluu
-//            ortodogu probelderdi karait dagy esli probel bar bolso
-//            shart tuura bolot dagy wordCounter ishteit istrue= false
-//              egerde shart tuura emes bolso bashkacha aitkanda ortodo probel jok bolso anda shart tuura emes bolot dagy
-//            isTrue = true bolup kalat
-            if (Character.isWhitespace(currentChar)) {
-                if (isTrue) {
-                    wordCount++;
-                    isTrue = false;
-                } else {
-                    isTrue = true;
-                }
-            }
-        }
-//        konsolgo itogtu chygaryp beret
-        System.out.println("Word count : " + wordCount);
-
+//        TODO 10
+        System.out.println("List is empty : " + students.isEmpty());
 
 
     }
